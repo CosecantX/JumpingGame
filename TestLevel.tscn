@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Attractor.tscn" type="PackedScene" id=2]
+[ext_resource path="res://StartingPlatform.tscn" type="PackedScene" id=3]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 96, 16 )
+
+[node name="TestLevel" type="Node2D"]
+
+[node name="StartingPlatform" parent="." instance=ExtResource( 3 )]
+position = Vector2( 256, 912 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 256, 696 )
+
+[node name="Attractor" parent="." instance=ExtResource( 2 )]
+position = Vector2( 88, 432 )
+
+[node name="Platform" type="StaticBody2D" parent="."]
+position = Vector2( 376, 192 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+shape = SubResource( 4 )
